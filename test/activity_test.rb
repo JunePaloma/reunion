@@ -55,4 +55,6 @@ assert_equal "Brunch", actv.name
     assert_equal ({"Jim" => 10, "Joe" => -10}), activity.owed
   end
 
+
+
 end

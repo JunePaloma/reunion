@@ -35,4 +35,5 @@ class Activity
     end
     owed
   end
+  
 end
