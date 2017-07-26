@@ -17,8 +17,22 @@ class Activity
 
   def total_cost
   @cost = @participants.values.inject do |sum, value|
-      sum +value
+      sum + value
     end
   end
 
+  def split
+  total_cost
+    @cost/@participants.length
+  end
+
+  def owed
+    split
+    owed = {}
+    @participants.each_pair do |name, money|
+      owes = split - money
+      owed[name] = owes
+    end
+    owed
+  end
 end

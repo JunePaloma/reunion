@@ -36,7 +36,23 @@ assert_equal "Brunch", actv.name
 
     assert_equal ({"Jim" => 20, "Joe" => 40}), actv.participants
     assert_equal 60, actv.total_cost
+  end
 
+  def test_activity_costs_can_be_divided
+    activity = Activity.new("Brunch")
+    activity.add_participant("Jim", 20)
+    activity.add_participant("Joe", 40)
+
+    assert_equal 30, activity.split
+
+  end
+
+  def test_that_participants_can_be_owed
+    activity = Activity.new("Brunch")
+    activity.add_participant("Jim", 20)
+    activity.add_participant("Joe", 40)
+
+    assert_equal ({"Jim" => 10, "Joe" => -10}), activity.owed
   end
 
 end
